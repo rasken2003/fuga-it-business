@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+/*
+Theme Name:		ColorMagの子テーマ
+Template:		colormag
+*/
+
+@import url('../colormag/style.css');
+
+#site-title a {
+//	color: #289dcc;
+	color: #ffa500;
+	font-size: 46px;
+}
+#site-navigation {
+   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) inset;
+   position: relative;
+//   background-color: #232323;
+   background-color: #ff8c00;
+   border-top: 4px solid #289dcc;
+}
+.main-navigation a:hover,
+.main-navigation ul li.current-menu-item > a,
+.main-navigation ul li.current_page_ancestor > a,
+.main-navigation ul li.current-menu-ancestor > a,
+.main-navigation ul li.current_page_item > a,
+.main-navigation ul li:hover > a {
+//   background-color: #289dcc;
+   background-color: #006400;
+}

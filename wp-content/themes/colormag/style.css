@@ -499,8 +499,7 @@ body {
 	line-height: 1.2;
 }
 #site-title a {
-//	color: #289dcc;
-	color: #ffa500;
+	color: #289dcc;
 	font-size: 46px;
 }
 #site-description {
@@ -671,8 +670,7 @@ nav li > ol {
 #site-navigation {
    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) inset;
    position: relative;
-//   background-color: #232323;
-   background-color: #ff8c00;
+   background-color: #232323;
    border-top: 4px solid #289dcc;
 }
 #site-navigation .inner-wrap {
@@ -740,8 +738,7 @@ li.default-menu {
 .main-navigation ul li.current-menu-ancestor > a,
 .main-navigation ul li.current_page_item > a,
 .main-navigation ul li:hover > a {
-//   background-color: #289dcc;
-   background-color: #006400;
+   background-color: #289dcc;
 }
 .main-navigation li.menu-item-has-children > a:after,
 .main-navigation li li.menu-item-has-children > a:after,
