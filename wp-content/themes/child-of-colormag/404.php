@@ -19,9 +19,9 @@
 
 					<?php if ( ! dynamic_sidebar( 'colormag_error_404_page_sidebar' ) ) : ?>
 						<header class="page-header">
-							<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'colormag' ); ?></h1>
+							<h1 class="page-title"><?php _e( 'おっと！ そのページは見つかりませんでした。', 'colormag' ); ?></h1>
 						</header>
-						<p><?php _e( 'It looks like nothing was found at this location. Try the search below.', 'colormag' ); ?></p>
+						<p><?php _e( 'そのページはこのロケーションではないように思えます。検索しなおしてください。', 'colormag' ); ?></p>
 						<?php get_search_form(); ?>
 					<?php endif; ?>
 
