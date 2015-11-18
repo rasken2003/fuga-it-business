@@ -27,3 +27,15 @@ Template:		colormag
 //   background-color: #289dcc;
    background-color: #006400;
 }
+
+#header-contact {
+	font-size: 12px;
+}
+#header-contact-table {
+	margin: 0 0 0 0;
+	background-color: #f5f5f5;
+	border: 2px solid #dcdcdc;
+}
+#header-contact-table th, td {
+	border: 0;
+}

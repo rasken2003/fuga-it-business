@@ -74,6 +74,27 @@ wp_head();
 						?>
 					</div><!-- #header-left-section -->
 					<div id="header-right-section">
+						<div id="header-contact">
+							お問い合わせはこちらまで
+							<table id="header-contact-table">
+								<tr>
+									<th class="header-contact-table-cell">
+										電話番号
+									</th>
+									<td class="header-contact-table-cell">
+										090-6173-1245
+									</td>
+								</tr>
+								<tr>
+									<th class="header-contact-table-cell">
+										メールアドレス
+									</th>
+									<td class="header-contact-table-cell">
+										aoidolphinjump@gmail.com
+									</td>
+								</tr>
+							</table>
+						</div>
 						<?php
 						if( is_active_sidebar( 'colormag_header_sidebar' ) ) {
 						?>
