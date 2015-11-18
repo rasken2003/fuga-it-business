@@ -6,6 +6,7 @@ Template:		colormag
 
 @import url('../colormag/style.css');
 
+/* カスタマイズ */
 #site-title a {
 //	color: #289dcc;
 	color: #ffa500;
@@ -28,6 +29,7 @@ Template:		colormag
    background-color: #006400;
 }
 
+/* ヘッダ */
 #header-contact {
 	font-size: 12px;
 }
@@ -36,6 +38,24 @@ Template:		colormag
 	background-color: #f5f5f5;
 	border: 2px solid #dcdcdc;
 }
-#header-contact-table th, td {
+#header-contact-table th {
 	border: 0;
+}
+#header-contact-table td {
+	border: 0;
+}
+
+/* 会社概要 */
+#company-table {
+	width: 700px;
+	background-color: #f5f5f5;
+	border: 2px solid #dcdcdc;
+}
+#company-table th {
+	border: 1px solid #dcdcdc;
+	width: 200px;
+}
+#company-table td {
+	border: 1px solid #dcdcdc;
+	width: 500px;
 }

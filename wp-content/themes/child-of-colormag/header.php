@@ -78,18 +78,18 @@ wp_head();
 							お問い合わせはこちらまで
 							<table id="header-contact-table">
 								<tr>
-									<th class="header-contact-table-cell">
+									<th>
 										電話番号
 									</th>
-									<td class="header-contact-table-cell">
+									<td>
 										090-6173-1245
 									</td>
 								</tr>
 								<tr>
-									<th class="header-contact-table-cell">
+									<th>
 										メールアドレス
 									</th>
-									<td class="header-contact-table-cell">
+									<td>
 										aoidolphinjump@gmail.com
 									</td>
 								</tr>
