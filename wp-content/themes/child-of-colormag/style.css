@@ -45,6 +45,30 @@ Template:		colormag
 	border: 0;
 }
 
+/* 事業紹介 */
+#service-history-table {
+	width: 900px;
+	background-color: #f5f5f5;
+	border: 2px solid #dcdcdc;
+}
+#service-history-table th {
+	background-color: #696969;
+	text-align: center;
+	color: #FFFFFF;
+}
+.service-history-table-ym {
+	border: 1px solid #dcdcdc;
+	width: 100px;
+}
+.service-history-table-contents {
+	border: 1px solid #dcdcdc;
+	width: 400px;
+}
+.service-history-table-points {
+	border: 1px solid #dcdcdc;
+	width: 400px;
+}
+
 /* 会社概要 */
 #company-table {
 	width: 700px;
@@ -54,6 +78,9 @@ Template:		colormag
 #company-table th {
 	border: 1px solid #dcdcdc;
 	width: 200px;
+	background-color: #696969;
+	text-align: center;
+	color: #FFFFFF;
 }
 #company-table td {
 	border: 1px solid #dcdcdc;
