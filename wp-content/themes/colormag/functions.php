@@ -3,80 +3,26 @@
  * ColorMag functions related to defining constants, adding files and WordPress core functionality.
  *
  * Defining some constants, loading all the required files and Adding some core functionality.
- * @uses add_theme_support() To add support for post thumbnails and automatic feed links.
- * @uses register_nav_menu() To add support for navigation menu.
- * @uses set_post_thumbnail_size() To set a custom post thumbnail size.
  *
- * @package ThemeGrill
+ * @uses       add_theme_support() To add support for post thumbnails and automatic feed links.
+ * @uses       register_nav_menu() To add support for navigation menu.
+ * @uses       set_post_thumbnail_size() To set a custom post thumbnail size.
+ *
+ * @package    ThemeGrill
  * @subpackage ColorMag
- * @since ColorMag 1.0
+ * @since      ColorMag 1.0
  */
 
-add_action( 'after_setup_theme', 'colormag_setup' );
-/**
- * All setup functionalities.
- *
- * @since 1.0
- */
-if( !function_exists( 'colormag_setup' ) ) :
-function colormag_setup() {
-
-	/**
-	 * Set the content width based on the theme's design and stylesheet.
-	 */
-	global $content_width;
-	if ( ! isset( $content_width ) )
-		$content_width = 660;
-
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 */
-	load_theme_textdomain( 'colormag', get_template_directory() . '/languages' );
-
-	// Add default posts and comments RSS feed links to head
-	add_theme_support( 'automatic-feed-links' );
-
-	// This theme uses Featured Images (also known as post thumbnails) for per-post/per-page.
-	add_theme_support( 'post-thumbnails' );
-
-	// Registering navigation menu.
-	register_nav_menu( 'primary', __( 'Primary Menu', 'colormag' ) );
-
-	// Cropping the images to different sizes to be used in the theme
-   add_image_size( 'colormag-highlighted-post', 392, 272, true );
-   add_image_size( 'colormag-featured-post-medium', 390, 205, true );
-   add_image_size( 'colormag-featured-post-small', 130, 90, true );
-   add_image_size( 'colormag-featured-image', 800, 445, true );
-
-	// Setup the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'colormag_custom_background_args', array(
-		'default-color' => 'eaeaea'
-	) ) );
-
-	/*
-    * Let WordPress manage the document title.
-    * By adding theme support, we declare that this theme does not use a
-    * hard-coded <title> tag in the document head, and expect WordPress to
-    * provide it for us.
-    */
-   add_theme_support('title-tag');
-
-	// Enable support for Post Formats.
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link', 'gallery', 'chat', 'audio', 'status' ) );
-
-	// Adding excerpt option box for pages as well
-	add_post_type_support( 'page', 'excerpt' );
-
-   /*
-    * Switch default core markup for search form, comment form, and comments
-    * to output valid HTML5.
-    */
-   add_theme_support('html5', array(
-       'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
-   ));
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
-endif;
+
+/**
+ * Define Theme Constants.
+ */
+$theme = wp_get_theme( 'colormag' );
+define( 'COLORMAG_THEME_VERSION', $theme['Version'] );
 
 /**
  * Define Directory Location Constants
@@ -84,13 +30,16 @@ endif;
 define( 'COLORMAG_PARENT_DIR', get_template_directory() );
 define( 'COLORMAG_CHILD_DIR', get_stylesheet_directory() );
 
-define( 'COLORMAG_INCLUDES_DIR', COLORMAG_PARENT_DIR. '/inc' );
+define( 'COLORMAG_INCLUDES_DIR', COLORMAG_PARENT_DIR . '/inc' );
 define( 'COLORMAG_CSS_DIR', COLORMAG_PARENT_DIR . '/css' );
 define( 'COLORMAG_JS_DIR', COLORMAG_PARENT_DIR . '/js' );
 define( 'COLORMAG_LANGUAGES_DIR', COLORMAG_PARENT_DIR . '/languages' );
 
 define( 'COLORMAG_ADMIN_DIR', COLORMAG_INCLUDES_DIR . '/admin' );
 define( 'COLORMAG_WIDGETS_DIR', COLORMAG_INCLUDES_DIR . '/widgets' );
+define( 'COLORMAG_CUSTOMIZER_DIR', COLORMAG_INCLUDES_DIR . '/customizer' );
+define( 'COLORMAG_ELEMENTOR_DIR', COLORMAG_INCLUDES_DIR . '/elementor' );
+define( 'COLORMAG_ELEMENTOR_WIDGETS_DIR', COLORMAG_ELEMENTOR_DIR . '/widgets' );
 
 define( 'COLORMAG_ADMIN_IMAGES_DIR', COLORMAG_ADMIN_DIR . '/images' );
 
@@ -100,25 +49,101 @@ define( 'COLORMAG_ADMIN_IMAGES_DIR', COLORMAG_ADMIN_DIR . '/images' );
 define( 'COLORMAG_PARENT_URL', get_template_directory_uri() );
 define( 'COLORMAG_CHILD_URL', get_stylesheet_directory_uri() );
 
-define( 'COLORMAG_INCLUDES_URL', COLORMAG_PARENT_URL. '/inc' );
+define( 'COLORMAG_INCLUDES_URL', COLORMAG_PARENT_URL . '/inc' );
 define( 'COLORMAG_CSS_URL', COLORMAG_PARENT_URL . '/css' );
 define( 'COLORMAG_JS_URL', COLORMAG_PARENT_URL . '/js' );
 define( 'COLORMAG_LANGUAGES_URL', COLORMAG_PARENT_URL . '/languages' );
 
 define( 'COLORMAG_ADMIN_URL', COLORMAG_INCLUDES_URL . '/admin' );
 define( 'COLORMAG_WIDGETS_URL', COLORMAG_INCLUDES_URL . '/widgets' );
+define( 'COLORMAG_CUSTOMIZER_URL', COLORMAG_INCLUDES_URL . '/customizer' );
+define( 'COLORMAG_ELEMENTOR_URL', COLORMAG_INCLUDES_URL . '/elementor' );
+define( 'COLORMAG_ELEMENTOR_WIDGETS_URL', COLORMAG_ELEMENTOR_URL . '/widgets' );
 
 define( 'COLORMAG_ADMIN_IMAGES_URL', COLORMAG_ADMIN_URL . '/images' );
 
-/** Load functions */
-require_once( COLORMAG_INCLUDES_DIR . '/custom-header.php' );
-require_once( COLORMAG_INCLUDES_DIR . '/functions.php' );
-require_once( COLORMAG_INCLUDES_DIR . '/header-functions.php' );
-require_once( COLORMAG_INCLUDES_DIR . '/customizer.php' );
+/** ColorMag setup file, hooked for `after_setup_theme`. */
+require COLORMAG_INCLUDES_DIR . '/colormag-setup.php';
 
-require_once( COLORMAG_ADMIN_DIR . '/meta-boxes.php' );
+/** ColorMag content width file. */
+require COLORMAG_INCLUDES_DIR . '/colormag-content-width.php';
+
+/** Helper functions. */
+require COLORMAG_INCLUDES_DIR . '/helper-functions.php';
+
+/** Template functions files. */
+require COLORMAG_INCLUDES_DIR . '/template-tags.php';
+require COLORMAG_INCLUDES_DIR . '/template-functions.php';
+
+/** WP_Query functions files. */
+require COLORMAG_INCLUDES_DIR . '/colormag-wp-query.php';
+
+/** Dynamic class file include. */
+require_once COLORMAG_INCLUDES_DIR . '/colormag-dynamic-classes.php';
+
+/**
+ * Load required theme hook files.
+ */
+require_once COLORMAG_INCLUDES_DIR . '/hooks/hooks.php';
+require_once COLORMAG_INCLUDES_DIR . '/hooks/header.php';
+require_once COLORMAG_INCLUDES_DIR . '/hooks/content.php';
+require_once COLORMAG_INCLUDES_DIR . '/hooks/footer.php';
+
+/** Load functions */
+require_once COLORMAG_INCLUDES_DIR . '/custom-header.php';
+require_once COLORMAG_CUSTOMIZER_DIR . '/class-colormag-customizer.php';
+require_once COLORMAG_INCLUDES_DIR . '/enqueue-scripts.php';
+require_once COLORMAG_INCLUDES_DIR . '/class-colormag-dynamic-css.php';
+
+/** Add the WooCommerce plugin support */
+if ( class_exists( 'WooCommerce' ) ) {
+	require_once COLORMAG_INCLUDES_DIR . '/woocommerce.php';
+}
+
+/** Add the Elementor compatibility file */
+if ( defined( 'ELEMENTOR_VERSION' ) ) {
+	require_once COLORMAG_ELEMENTOR_DIR . '/elementor.php';
+	require_once COLORMAG_ELEMENTOR_DIR . '/elementor-functions.php';
+}
+
+/** Add meta boxes. */
+require_once COLORMAG_INCLUDES_DIR . '/meta-boxes/class-colormag-meta-boxes.php';
+require_once COLORMAG_INCLUDES_DIR . '/meta-boxes/class-colormag-meta-box-page-settings.php';
+
+/** Load migration scripts. */
+require_once COLORMAG_INCLUDES_DIR . '/migration.php';
 
 /** Load Widgets and Widgetized Area */
-require_once( COLORMAG_WIDGETS_DIR . '/widgets.php' );
+require_once COLORMAG_WIDGETS_DIR . '/widgets.php';
 
-?>
+/**
+ * Load deprecated functions.
+ */
+require_once COLORMAG_INCLUDES_DIR . '/deprecated/deprecated-filters.php';
+require_once COLORMAG_INCLUDES_DIR . '/deprecated/deprecated-functions.php';
+require_once COLORMAG_INCLUDES_DIR . '/deprecated/deprecated-hooks.php';
+
+/**
+ * Load Demo Importer Configs.
+ */
+if ( class_exists( 'TG_Demo_Importer' ) ) {
+	require get_template_directory() . '/inc/demo-config.php';
+}
+
+/**
+ * Calling in the admin area for the Welcome Page as well as for the new theme notice too.
+ */
+if ( is_admin() ) {
+	require get_template_directory() . '/inc/admin/class-colormag-admin.php';
+	require get_template_directory() . '/inc/admin/class-colormag-dashboard.php';
+	require get_template_directory() . '/inc/admin/class-colormag-notice.php';
+	require get_template_directory() . '/inc/admin/class-colormag-welcome-notice.php';
+	require get_template_directory() . '/inc/admin/class-colormag-upgrade-notice.php';
+	require get_template_directory() . '/inc/admin/class-colormag-theme-review-notice.php';
+}
+
+/**
+ * Detect plugin. For use on Front End only.
+ */
+include_once ABSPATH . 'wp-admin/includes/plugin.php';
+
