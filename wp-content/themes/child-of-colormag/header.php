@@ -82,7 +82,7 @@ wp_head();
 										電話番号
 									</th>
 									<td>
-										090-6173-1245
+										（修正中）
 									</td>
 								</tr>
 								<tr>
@@ -90,7 +90,7 @@ wp_head();
 										メールアドレス
 									</th>
 									<td>
-										aoidolphinjump@gmail.com
+										（修正中）
 									</td>
 								</tr>
 							</table>
